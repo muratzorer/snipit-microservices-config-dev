@@ -14,6 +14,6 @@ eureka:
 
 logging:
   level:
-    com.netflix.eureka: DEBUG
-    org.springframework.cloud: INFO
+    com.netflix.eureka: INFO
+    org.springframework.cloud: DEBUG
     ROOT: INFO
