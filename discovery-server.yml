@@ -11,3 +11,9 @@ eureka:
     fetchRegistry: false
   server:
     waitTimeInMsWhenSyncEmpty: 0
+
+logging:
+  level:
+    com.netflix.eureka: DEBUG
+    org.springframework.cloud: INFO
+    ROOT: INFO
