@@ -14,3 +14,11 @@ eureka:
       enabled: true
   instance:
     leaseRenewalIntervalInSeconds: 10 # Remove in prod
+
+logging:
+  level:
+    com.netflix.discovery: OFF
+    org.springframework.cloud: DEBUG
+    org.springframework.cloud.config.server: INFO
+    org.springframework.web: DEBUG
+    ROOT: INFO
