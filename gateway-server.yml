@@ -30,3 +30,4 @@ zuul:
     qr-service:
       path: /qr/**
       serviceId: qr-service
+      sensitiveHeaders: Cookie,Set-Cookie
