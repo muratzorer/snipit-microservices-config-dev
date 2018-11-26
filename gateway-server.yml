@@ -20,7 +20,7 @@ logging:
     com.netflix.discovery: OFF
     org.springframework.cloud: DEBUG
     org.springframework.cloud.config.server: INFO
-    org.springframework.web: DEBUG
+    org.springframework.web: INFO
     ROOT: INFO
 
 zuul:
