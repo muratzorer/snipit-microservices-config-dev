@@ -1,0 +1,32 @@
+server:
+  port: 8762
+  
+spring:
+  cloud:
+    config:
+      fail-fast: true
+      
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761
+    healthcheck:
+      enabled: true
+  instance:
+    leaseRenewalIntervalInSeconds: 10 # Remove in prod
+
+logging:
+  level:
+    com.netflix.discovery: OFF
+    org.springframework.cloud: DEBUG
+    org.springframework.cloud.config.server: INFO
+    org.springframework.web: DEBUG
+    ROOT: INFO
+
+zuul:
+  # To skip having a service automatically added and disable accessing using service name
+  ignoredServices: '*'
+  routes:
+    qr-service:
+      path: /qr/**
+      serviceId: qr-service
