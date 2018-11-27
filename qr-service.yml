@@ -5,6 +5,10 @@ spring:
   cloud:
     config:
       fail-fast: true
+  boot:
+    admin:
+      client:
+        url: http://localhost:8080
       
 eureka:
   client:
@@ -14,6 +18,13 @@ eureka:
       enabled: true
   instance:
     leaseRenewalIntervalInSeconds: 10 # Remove in prod
+
+# To enable all actuator endpoints for admin-server
+management:
+  endpoints:
+    web:
+      exposure:
+        include: *
 
 logging:
   level:
