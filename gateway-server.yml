@@ -17,8 +17,7 @@ eureka:
 
 logging:
   level:
-    com.netflix.discovery: OFF
-    org.springframework.cloud: DEBUG
+    org.springframework.cloud: INFO
     org.springframework.cloud.config.server: INFO
     org.springframework.web: INFO
     ROOT: INFO
