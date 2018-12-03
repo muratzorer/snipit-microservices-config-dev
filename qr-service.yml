@@ -1,8 +1,7 @@
 server:
   port: 8090
-  
+
 spring:
-  profiles.active: dev
   cloud:
     config:
       fail-fast: true
@@ -10,7 +9,18 @@ spring:
     admin:
       client:
         url: http://localhost:8080
-      
+  sleuth:
+    sampler:
+      probability: 1.0
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+  zipkin:
+    sender:
+      type: web # rabbit in prod
+
 eureka:
   client:
     service-url:
@@ -27,30 +37,14 @@ management:
       exposure:
         include: '*'
 
----
-spring:
-  profiles: dev
 logging:
-  file: logs/qr-service.log
-  pattern:
-    console: "%d %-5level %logger : %msg%n"
-    file: "%d %-5level [%thread] %logger : %msg%n"
-  level:
-    com.netflix.discovery: OFF
-    org.springframework.cloud: DEBUG
-    org.springframework.cloud.config.server: INFO
-    org.springframework.web: INFO
-    ROOT: INFO
----
-spring:
-  profiles: prod
-logging:
-  file: logs/qr-service.log
-  pattern:
-    file: "%d %-5level [%thread] %logger{0} : %msg%n"
+  # Sets ${LOG_PATH} in logback-spring.xml
+  path: logs
   level:
     com.netflix.discovery: OFF
     org.springframework.cloud: INFO
     org.springframework.cloud.config.server: INFO
     org.springframework.web: INFO
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
+    org.slf4j.Logger: DEBUG
     ROOT: INFO
